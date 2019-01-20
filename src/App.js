@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Navbar from './components/Navbar';
 import Details from './components/Details';
-import Cart from './components/Cart';
+import Cart from './components/cart';
 import Default from './components/Default';
 import ProductList from './components/ProductList';
 import Modal from './components/Modal';
