@@ -10,6 +10,9 @@ import ProductList from './components/ProductList';
 import Modal from './components/Modal';
 
 
+require('dotenv').config()
+
+
 class App extends Component {
   render() {
     return (
