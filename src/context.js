@@ -60,6 +60,8 @@ class ProductProvider extends Component {
         products: tempProducts,
         cart: this.state.cart.concat(product)
       }
+    }, () => {
+      this.addTotals();
     })
   }
 
@@ -94,7 +96,29 @@ class ProductProvider extends Component {
   }
 
   clearCart = () => {
-    console.log('Clear cart');
+    this.setState(() => {
+      return {
+        cart: []
+      }
+    }, () => {
+      this.setProducts();
+      this.addTotals();
+    })
+  }
+
+  addTotals = () => {
+    let subTotal = 0;
+    this.state.cart.map(item => subTotal += item.total);
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+    this.setState(() => {
+      return {
+        cartSubtotal: subTotal,
+        cartTax: tax,
+        cartTotal: total
+      }
+    })
   }
 
   render() {
